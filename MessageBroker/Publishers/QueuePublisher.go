@@ -56,6 +56,10 @@ func (publisher *QueuePublisher) InitializePublisher() {
 	log.Printf(" [x] Sent %s\n", body)
 }
 
+func (publisher *QueuePublisher) DisposePublisher() {
+
+}
+
 func failOnError(err error, msg string) {
 	if err != nil {
 		log.Panicf("%s: %s", msg, err)
