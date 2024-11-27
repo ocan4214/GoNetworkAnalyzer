@@ -2,3 +2,5 @@ go 1.23.3
 
 
 use ./NetworkAnalyzer
+use ./Utilities
+use ./MessageBroker

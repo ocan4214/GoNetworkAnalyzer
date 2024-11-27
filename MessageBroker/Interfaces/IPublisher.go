@@ -1,5 +1,6 @@
 package RabbitMQInterfaces
 
 type IPublisher interface {
-	OpenConnection()
+	InitializePublisher()
+	DisposePublisher()
 }

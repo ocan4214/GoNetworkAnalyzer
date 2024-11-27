@@ -1,6 +1,7 @@
 package main
 
 import (
+	CommonUtils "CommonUtilities"
 	"bufio"
 	"bytes"
 	"fmt"
@@ -92,15 +93,21 @@ func main() {
 			waitGroup.Add(1)
 			go func() {
 				processIDList.mutex.Lock()
+				defer processIDList.mutex.Unlock()
+				defer waitGroup.Done()
+				processStatus, err := IsProcessRunningStatus(v)
+				if !processStatus {
+					fmt.Println("Process not runninh")
+				}
+				if err != nil {
+					fmt.Println(CommonUtils.GetCurrentDate())
+				}
 
-				processIDList.mutex.Unlock()
-				waitGroup.Done()
 			}()
 		}
 
 		waitGroup.Wait()
 	}
-	fmt.Println(processID)
 }
 
 // package main
