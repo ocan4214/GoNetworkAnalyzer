@@ -97,7 +97,7 @@ func main() {
 				defer waitGroup.Done()
 				processStatus, err := IsProcessRunningStatus(v)
 				if !processStatus {
-					fmt.Println("Process not runninh")
+					fmt.Println("Process not running")
 				}
 				if err != nil {
 					fmt.Println(CommonUtils.GetCurrentDate())
